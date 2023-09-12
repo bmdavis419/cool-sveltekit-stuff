@@ -5,7 +5,7 @@
 
 <div class="w-full h-screen font-mono flex flex-col justify-between items-center">
 	<header class="py-4 text-3xl font-bold w-full flex justify-between px-16">
-		<h2>Cool S*!t in <span class="text-primary-400">SvelteKit</span></h2>
+		<h2>Cool Stuff in <span class="text-primary-400">SvelteKit</span></h2>
 		<LightSwitch />
 	</header>
 
