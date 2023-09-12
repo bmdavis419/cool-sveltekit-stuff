@@ -4,6 +4,8 @@ import { join } from 'path';
 // 1. Import the Skeleton plugin
 import { skeleton } from '@skeletonlabs/tw-plugin';
 
+import forms from '@tailwindcss/forms';
+
 /** @type {import('tailwindcss').Config} */
 export default {
 	// 2. Opt for dark mode to be handled via the class method
@@ -19,7 +21,7 @@ export default {
 	plugins: [
 		// 4. Append the Skeleton plugin (after other plugins)
 		skeleton({
-			themes: { preset: ['rocket'] }
+			themes: { preset: ['rocket', 'wintry', 'skeleton', 'crimson', 'gold-nouveau'] }
 		})
 	]
 };

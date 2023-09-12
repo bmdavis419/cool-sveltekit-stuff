@@ -1,12 +1,41 @@
-<script>
+<script lang="ts">
+	import { browser } from '$app/environment';
 	import '../app.css';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
+
+	let curTheme = 'rocket';
+	const setTheme = (theme: string) => {
+		if (browser) {
+			const bodyElement = document.body;
+			bodyElement.setAttribute('data-theme', theme);
+		}
+	};
+
+	$: {
+		setTheme(curTheme);
+	}
 </script>
 
 <div class="w-full h-screen font-mono flex flex-col justify-between items-center">
 	<header class="py-4 text-3xl font-bold w-full flex justify-between px-16">
-		<h2>Cool Stuff in <span class="text-primary-400">SvelteKit</span></h2>
-		<LightSwitch />
+		<h2>
+			Cool Stuff in <span
+				class="bg-gradient-to-br from-primary-700 to-secondary-300 bg-clip-text text-transparent box-decoration-clone"
+				>SvelteKit</span
+			>
+		</h2>
+		<div class="flex flex-row items-center justify-between p-4 gap-x-4">
+			<select class="select text-sm font-light" bind:value={curTheme}>
+				<option value="rocket" selected>rocket</option>
+				<option value="wintry">wintry</option>
+				<option value="skeleton">skeleton</option>
+				<option value="crimson">crimson</option>
+				<option value="gold-nouveau">gold nouveau</option>
+			</select>
+			<div>
+				<LightSwitch />
+			</div>
+		</div>
 	</header>
 
 	<slot />
