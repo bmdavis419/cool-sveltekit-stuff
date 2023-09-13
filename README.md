@@ -1,38 +1,11 @@
-# create-svelte
+## SvelteKit Example App
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is a simple little demo using SvelteKit, TailwindCSS, SkeletonUI, the Bun runtime, and Docker.
 
-## Creating a project
+### Running the app
 
-If you're seeing this, you've probably already done this step. Congrats!
+To run the app, make sure you have Bun installed, then run `bun install` to install the dependencies. Then run `bun run dev` to start the dev server.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+### Deploying the app
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+You can deploy this app almost anywhere, although I recommend using [Koyeb](https://www.koyeb.com/docs) for fast, easy, cheap, and global deployments using docker.
