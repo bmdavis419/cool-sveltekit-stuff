@@ -3,6 +3,19 @@
 	import '../app.css';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 
+	import { onNavigate } from '$app/navigation';
+
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
+
 	let curTheme = 'rocket';
 	const setTheme = (theme: string) => {
 		if (browser) {
@@ -18,12 +31,12 @@
 
 <div class="w-full h-screen font-mono flex flex-col justify-between items-center">
 	<header class="py-4 text-3xl font-bold w-full flex justify-between px-16">
-		<h2>
+		<a href="/">
 			Cool Stuff in <span
 				class="bg-gradient-to-br from-primary-700 to-secondary-300 bg-clip-text text-transparent box-decoration-clone"
 				>SvelteKit</span
 			>
-		</h2>
+		</a>
 		<div class="flex flex-row items-center justify-between p-4 gap-x-4">
 			<select class="select text-sm font-light" bind:value={curTheme}>
 				<option value="rocket" selected>rocket</option>
@@ -45,14 +58,19 @@
 			<h2 class="text-surface-400 font-light italic text-sm">by Benjamin Davis</h2>
 
 			<a
-				href="https://www.youtube.com/@bmdavis419"
-				target="_blank"
-				class="font-bold text-lg hover:underline">YouTube</a
-			>
-			<a
 				href="https://twitter.com/benjamin41902"
 				target="_blank"
 				class="font-bold text-lg hover:underline">Twitter (X)</a
+			>
+		</div>
+
+		<div class="flex flex-col gap-y-2">
+			<h2 class="text-surface-400 font-light italic text-sm">see source code</h2>
+
+			<a
+				href="https://github.com/bmdavis419/cool-sveltekit-stuff"
+				target="_blank"
+				class="font-bold text-lg hover:underline">GitHub</a
 			>
 		</div>
 		<div class="flex flex-col gap-y-2">
@@ -93,3 +111,37 @@
 		</div>
 	</footer>
 </div>
+
+<style>
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
+	}
+
+	@keyframes fade-out {
+		to {
+			opacity: 0;
+		}
+	}
+
+	@keyframes slide-from-right {
+		from {
+			transform: translateX(20px);
+		}
+	}
+
+	@keyframes slide-to-left {
+		to {
+			transform: translateX(-20px);
+		}
+	}
+
+	/* :root::view-transition-old(root) {
+		animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out;
+	}
+
+	:root::view-transition-new(root) {
+		animation: 90ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in;
+	} */
+</style>
