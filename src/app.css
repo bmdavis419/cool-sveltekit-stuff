@@ -14,7 +14,3 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-
-.viewLink {
-	view-transition-name: view-content;
-}

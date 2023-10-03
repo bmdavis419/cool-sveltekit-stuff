@@ -3,18 +3,9 @@
 	import '../app.css';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 
-	import { onNavigate } from '$app/navigation';
+	import { setupViewTransition } from 'sveltekit-view-transition';
 
-	onNavigate((navigation) => {
-		if (!document.startViewTransition) return;
-
-		return new Promise((resolve) => {
-			document.startViewTransition(async () => {
-				resolve();
-				await navigation.complete;
-			});
-		});
-	});
+	setupViewTransition();
 
 	let curTheme = 'rocket';
 	const setTheme = (theme: string) => {
